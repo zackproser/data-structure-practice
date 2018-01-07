@@ -24,5 +24,6 @@ let isBalanced = (pstring) => {
     return stack.isEmpty()
 }
 
-console.log(`${balanced} is balanced: ${isBalanced(balanced)}`)
-console.log(`${notbalanced} is balanced: ${isBalanced(notbalanced)}`)
+console.log(`${balanced} is balanced: ${isBalanced(balanced)}`) //true
+console.log(`${notbalanced} is balanced: ${isBalanced(notbalanced)}`) //false
+

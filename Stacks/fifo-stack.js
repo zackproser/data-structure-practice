@@ -13,7 +13,7 @@ class Stack {
   }
 
   pop() {
-    return this._items.shift()
+    return this._items.pop()
   }
 
   peek() {
