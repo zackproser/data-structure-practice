@@ -13,7 +13,6 @@ const notBalanced = '{ { [ ] } )'
  */
 let isBalanced = (sstring) => {
     sstring = sstring.replace(/\s/g, '')
-    console.log(sstring)
     let stack = new Stack(),
         sMap = {
             '(': ')',
