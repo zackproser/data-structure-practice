@@ -33,7 +33,6 @@ let expression = `${mathRoot.left.val} ${mathRoot.val} ${mathRoot.right.val}`
 
 console.log(`Parsed expression: ${eval(expression)}`) // 81
 
-
 /**
  * Parse a more complex mathematical expression using a tree:
  *
@@ -87,7 +86,9 @@ let buildParseTree = (exp) => {
     return tree
 }
 
-console.log(buildParseTree('(3 + (4 * 5))'))
+let builtTree = buildParseTree('(3 + (4 * 5))')
+
+console.log(builtTree)
 /**
  *
 { left: { val: 3 },
@@ -95,6 +96,19 @@ console.log(buildParseTree('(3 + (4 * 5))'))
   right: { left: { val: 4 }, val: '*', right: { val: 5 } } }
  */
 
+/**
+ * Recursively evaluate a parse tree to determine the final output
+ * of the mathematical expression the tree represents
+ *
+ * @param  {Object} tree A parse tree representing a mathematical expression
+ * @return {Mixed}
+ */
+let evaluateParseTree = (tree) => {
+  if (tree.left && tree.right) {
+    return eval(`${evaluateParseTree(tree.left)} ${tree.val} ${evaluateParseTree(tree.right)}`)
+  } else {
+    return tree.val
+  }
+}
 
-
-
+console.log(evaluateParseTree(builtTree)) //23
